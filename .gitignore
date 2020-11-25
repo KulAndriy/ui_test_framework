@@ -1,0 +1,24 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+test-output/
+target/
+*.log
+log/
+screens/
+.idea
+*.iml
+.metadata/
+.settings/
+.project
+.classpath
+.idea/
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/uiDesigner.xml
+.idea/sonarlint
+.idea/workspace.xml
+ui-test-project.iml
