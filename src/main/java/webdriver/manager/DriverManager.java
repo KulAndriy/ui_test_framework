@@ -1,18 +1,17 @@
-package webDriverSettings;
+package webdriver.manager;
 
 import org.openqa.selenium.WebDriver;
 
 public abstract class DriverManager {
-    protected WebDriver driver;
+    public WebDriver driver;
     protected abstract void setDriverProperty();
     protected abstract WebDriver createDriver();
 
     public WebDriver getDriverByType(){
-        if (driver == null){
+//        if (driver == null){
             driver = createDriver();
-        }
+//        }
         return driver;
     }
-
 
 }

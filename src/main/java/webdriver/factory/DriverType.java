@@ -1,4 +1,4 @@
-package webDriverSettings;
+package webdriver.factory;
 
 public enum DriverType {
     CHROME,

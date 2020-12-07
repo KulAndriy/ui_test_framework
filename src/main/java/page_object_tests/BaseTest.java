@@ -1,13 +1,12 @@
-package pageObjectTests;
+package page_object_tests;
 
 import org.testng.annotations.*;
-import webDriverSettings.DriverType;
-import webDriverSettings.DriverWrapper;
+import webdriver.factory.DriverType;
+import webdriver.DriverWrapper;
 
 import java.util.*;
 
 public class BaseTest {
-    DriverWrapper driverWrapper = new DriverWrapper();
 
     @DataProvider(name = "browser")
     public Object[] testBrowsers() {
@@ -19,12 +18,12 @@ public class BaseTest {
         DriverWrapper.getDriver().manage().deleteAllCookies();
     }
 
-//    @AfterMethod //don't work
+    @AfterMethod //don't work
     public void closeDriver(){
         DriverWrapper.getDriver().quit();
     }
 
-    @AfterClass
+    @AfterTest
     public void turnDown(){
         System.out.println(DriverWrapper.driversToCleanup);
         DriverWrapper.driverCleanup();

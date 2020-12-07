@@ -1,4 +1,4 @@
-package applicationPages.pages;
+package application_pages.pages;
 
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;

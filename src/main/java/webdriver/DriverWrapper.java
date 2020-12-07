@@ -1,6 +1,8 @@
-package webDriverSettings;
+package webdriver;
 
 import org.openqa.selenium.WebDriver;
+import webdriver.factory.DriverManagerFactory;
+import webdriver.factory.DriverType;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,13 +14,14 @@ public class DriverWrapper {
 
     protected static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     public static List<WebDriver> driversToCleanup = Collections.synchronizedList(new ArrayList());
-    private DriverManagerFactory driverManagerFactory = new DriverManagerFactory();
+    private static DriverManagerFactory driverManagerFactory = new DriverManagerFactory();
 
-    public void setDriver(DriverType driverType){
+    public static void setDriver(DriverType driverType){
         driver.set(driverManagerFactory.getDriverManager(driverType).getDriverByType());
-        getDriver().manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         getDriver().manage().window().maximize();
         driversToCleanup.add(getDriver());
+        System.out.println(driversToCleanup);
     }
 
     public static WebDriver getDriver(){

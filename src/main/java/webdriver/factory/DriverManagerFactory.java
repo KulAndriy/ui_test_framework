@@ -1,4 +1,9 @@
-package webDriverSettings;
+package webdriver.factory;
+
+import webdriver.manager.ChromeDriverManager;
+import webdriver.manager.DriverManager;
+import webdriver.manager.EdgeDriverManager;
+import webdriver.manager.FirefoxDriverManager;
 
 public class DriverManagerFactory {
 

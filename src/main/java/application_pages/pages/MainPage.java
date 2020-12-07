@@ -1,9 +1,10 @@
-package applicationPages.pages;
+package application_pages.pages;
 
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends BasePage {
@@ -14,7 +15,11 @@ public class MainPage extends BasePage {
     }
 
     @FindBy(xpath = "//body[@id='mn_h']")
-    private WebElement pageLoaded;
+    protected WebElement pageLoaded;
+    @FindBy(xpath = "//div[@class='mn_navigationDropdownTrigger']/span[@class='mn_mainNavTrigger']")
+    private WebElement navArrow;
+    @FindBy(xpath = "//a[@href='/Mens-Clothing/bc_2___.htm']")
+    private WebElement categoryMen;
 
     public String checkURL() {
         return this.driver.getCurrentUrl();
@@ -31,5 +36,12 @@ public class MainPage extends BasePage {
             MyLogger.getLogger().error("The main page is not loaded!!!");
             return false;
         }
+    }
+
+    public void clickOnCategory(){
+        navArrow.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(categoryMen).click().perform();
+
     }
 }

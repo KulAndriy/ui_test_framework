@@ -1,22 +1,22 @@
-package webDriverSettings;
+package webdriver.manager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
-public class EdgeDriverManager extends DriverManager{
+public class EdgeDriverManager extends DriverManager {
     private static EdgeDriverManager edgeDriverManagerInstance;
 
     private EdgeDriverManager(){};
 
     @Override
     public void setDriverProperty() {
-        System.setProperty("webdriver.edge.driver","./src/main/resources/webdrivers/msedgedriver.exe");
+        System.setProperty("webdriver.edge.driver","./src/main/resources/drivers/msedgedriver.exe");
     }
 
     @Override
     public WebDriver createDriver() {
-        setDriverProperty();
-        return driver = new EdgeDriver();
+            setDriverProperty();
+            return driver = new EdgeDriver();
     }
 
     public static EdgeDriverManager getEdgeDriverManagerInstance(){
