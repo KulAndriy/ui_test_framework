@@ -1,24 +1,25 @@
-package page_object_tests;
+package tests.aa;
 
-import application_pages.pages.LoginPage;
-import application_pages.pages.MainPage;
+import listener.Listener;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import tests.BaseTest;
 import webdriver.factory.DriverType;
-import webdriver.DriverWrapper;
+import wrapper.DriverWrapper;
+import pages.*;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-@Listeners(logger.Listener.class)
+@Listeners(Listener.class)
 
-public class Tests extends BaseTest{
+public class Tests extends BaseTest {
     protected final String BASE_URL = "https://www.aadvantageeshopping.com/index.php?p=h";
 
     MainPage mainPage;
     LoginPage loginPage;
 
-    public String baseUrl() {
+public String baseUrl() {
         return BASE_URL;
     }
 
@@ -30,13 +31,13 @@ public class Tests extends BaseTest{
         loginPage = new LoginPage(DriverWrapper.getDriver());
         mainPage = new MainPage(DriverWrapper.getDriver());
         mainPage.clickOnCategory();
-        loginPage.clickOnLogin();
+        mainPage.clickLoginLink();
         loginPage.enterNumber("03UUF80");
         loginPage.enterPassword("Pa55word");
         loginPage.clickLoginButton();
         assertTrue(loginPage.userIsLoggedIn());
-        assertTrue(mainPage.verifyMainPageIsLoaded());
-        assertTrue(mainPage.checkURL().equals(baseUrl()));
+        assertTrue(mainPage.verifyMainPageIsOpened());
+        assertTrue(DriverWrapper.getCurrentURL().equals(baseUrl()));
         assertFalse(loginPage.wrongLogin());
     }
 
@@ -48,13 +49,13 @@ public class Tests extends BaseTest{
         mainPage = new MainPage(DriverWrapper.getDriver());
         loginPage = new LoginPage(DriverWrapper.getDriver());
         mainPage.clickOnCategory();
-        loginPage.clickOnLogin();
+        mainPage.clickLoginLink();
         loginPage.enterNumber("03UUF80");
         loginPage.enterPassword("Pa55word1");
         loginPage.clickLoginButton();
         assertFalse(loginPage.userIsLoggedIn());
-        assertFalse(mainPage.verifyMainPageIsLoaded());
-        assertFalse(mainPage.checkURL().equals(baseUrl()));
+        assertFalse(mainPage.verifyMainPageIsOpened());
+        assertFalse(DriverWrapper.getCurrentURL().equals(baseUrl()));
         assertTrue(loginPage.wrongLogin());
     }
 }

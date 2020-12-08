@@ -1,15 +1,14 @@
-package logger;
+package listener;
 
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+import logger.MyLogger;
+import org.testng.*;
 
-public class Listener implements ITestListener {
+public class Listener implements ITestListener, IInvokedMethodListener {
+
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println("\n");
-        MyLogger.getLogger().info("\n");
-        MyLogger.getLogger().info("Test: [{}] is started!!!", result.getName());
+        MyLogger.getLogger().info("\n Test: [{}] is started!!!", result.getName());
+
     }
 
     @Override
@@ -24,7 +23,7 @@ public class Listener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        MyLogger.getLogger().info("///////////////////////////////////////////////////////////////////////");
+        MyLogger.getLogger().info("Test class {}.", context.getName());
     }
 
     @Override

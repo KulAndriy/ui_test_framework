@@ -1,4 +1,4 @@
-package webdriver;
+package wrapper;
 
 import org.openqa.selenium.WebDriver;
 import webdriver.factory.DriverManagerFactory;
@@ -18,14 +18,17 @@ public class DriverWrapper {
 
     public static void setDriver(DriverType driverType){
         driver.set(driverManagerFactory.getDriverManager(driverType).getDriverByType());
-        getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WaitWrapper.implicitlyWait();
         getDriver().manage().window().maximize();
         driversToCleanup.add(getDriver());
-        System.out.println(driversToCleanup);
     }
 
     public static WebDriver getDriver(){
         return driver.get();
+    }
+
+    public static String getCurrentURL() {
+        return getDriver().getCurrentUrl();
     }
 
     public static void driverCleanup() {

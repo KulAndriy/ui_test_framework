@@ -1,15 +1,15 @@
-package application_pages.pages;
+package pages;
 
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import wrapper.WaitWrapper;
 
 public class LoginPage extends BasePage {
 
-    @FindBy(xpath = "//a[@class='mn_signInLink'][@href='/j____.htm']")
-    private WebElement logIn;
+
     @FindBy(xpath = "//input[@type='text'][@id='mn_lookupId']")
     private WebElement number;
     @FindBy(xpath = "//input[@type='password'][@id='mn_password']")
@@ -21,16 +21,8 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//nav[@class='mn_accountNavigation']")
     private WebElement userLoggedIn;
 
-
-
-    //*********Constructor*********
     public LoginPage(WebDriver driver) {
         super(driver);
-    }
-
-    public void clickOnLogin(){
-        logIn.click();
-        MyLogger.getLogger().info("Clicks on Login link");
     }
 
     public void enterNumber(String number) {
@@ -46,17 +38,15 @@ public class LoginPage extends BasePage {
     }
 
     public void clickLoginButton() {
+        WaitWrapper.waitForElementClickable(loginButton);
         loginButton.click();
         MyLogger.getLogger().info("Login button is clicked");
     }
 
     public boolean userIsLoggedIn(){
         try {
-            if (userLoggedIn.isDisplayed()) {
-                MyLogger.getLogger().info("Login is success!!!");
-                return userLoggedIn.isDisplayed();
-            }else
-                return false;
+            MyLogger.getLogger().info("Login is success!!!");
+            return userLoggedIn.isDisplayed();
         } catch (NoSuchElementException e) {
             MyLogger.getLogger().info("Login is not success!!!");
             return false;
@@ -65,11 +55,8 @@ public class LoginPage extends BasePage {
 
     public boolean wrongLogin(){
         try {
-            if (errorAlert.isDisplayed()){
-                MyLogger.getLogger().info("Errors while login, please verify your credentials!!!");
-                return errorAlert.isDisplayed();
-            } else
-                return false;
+            MyLogger.getLogger().info("Errors while login, please verify your credentials!!!");
+            return errorAlert.isDisplayed();
         } catch (NoSuchElementException e) {
             MyLogger.getLogger().info("No errors while login!!!!");
             return false;

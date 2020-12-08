@@ -1,8 +1,8 @@
-package page_object_tests;
+package tests;
 
 import org.testng.annotations.*;
 import webdriver.factory.DriverType;
-import webdriver.DriverWrapper;
+import wrapper.DriverWrapper;
 
 import java.util.*;
 
@@ -18,7 +18,7 @@ public class BaseTest {
         DriverWrapper.getDriver().manage().deleteAllCookies();
     }
 
-    @AfterMethod //don't work
+    @AfterMethod
     public void closeDriver(){
         DriverWrapper.getDriver().quit();
     }
