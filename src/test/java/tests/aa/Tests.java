@@ -28,8 +28,8 @@ public String baseUrl() {
         DriverWrapper.setDriver(DriverType.valueOf(e));
         DriverWrapper.getDriver().get(baseUrl());
 
-        loginPage = new LoginPage(DriverWrapper.getDriver());
-        mainPage = new MainPage(DriverWrapper.getDriver());
+        loginPage = new LoginPage();
+        mainPage = new MainPage();
         mainPage.clickOnCategory();
         mainPage.clickLoginLink();
         loginPage.enterNumber("03UUF80");
@@ -46,8 +46,8 @@ public String baseUrl() {
         DriverWrapper.setDriver(DriverType.valueOf(e));
         DriverWrapper.getDriver().get(baseUrl());
 
-        mainPage = new MainPage(DriverWrapper.getDriver());
-        loginPage = new LoginPage(DriverWrapper.getDriver());
+        mainPage = new MainPage();
+        loginPage = new LoginPage();
         mainPage.clickOnCategory();
         mainPage.clickLoginLink();
         loginPage.enterNumber("03UUF80");
