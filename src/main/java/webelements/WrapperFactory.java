@@ -1,4 +1,4 @@
-package elements;
+package webelements;
 
 import interfaces.elements.IElement;
 import org.openqa.selenium.WebElement;

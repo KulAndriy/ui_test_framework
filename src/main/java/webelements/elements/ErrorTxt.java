@@ -1,16 +1,14 @@
-package elements;
+package webelements.elements;
 
-import interfaces.elements.IErrorTxt;
 import org.openqa.selenium.WebElement;
 
-public class ErrorTxt implements IErrorTxt {
+public class ErrorTxt extends WebElements {
     protected WebElement element;
 
     public ErrorTxt(WebElement element) {
         this.element = element;
     }
 
-    @Override
     public WebElement getErrorList() {
         return element;
     }

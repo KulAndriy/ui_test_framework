@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.*;
 import webdriver.factory.DriverType;
-import wrapper.DriverWrapper;
+import webdriver.DriverWrapper;
 
 import java.util.*;
 
@@ -25,7 +25,6 @@ public class BaseTest {
 
     @AfterTest
     public void turnDown(){
-        System.out.println(DriverWrapper.driversToCleanup);
         DriverWrapper.driverCleanup();
     }
 }

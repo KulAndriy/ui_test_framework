@@ -1,13 +1,13 @@
 package pages;
 
-import elements.Body;
-import elements.Link;
+import webelements.elements.Body;
+import webelements.elements.Link;
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import wrapper.ElementsWrapper;
-import wrapper.WaitWrapper;
+import webelements.elements.WebElements;
+import utils.WaitHelper;
 
 public class MainPage extends BasePage {
 
@@ -21,7 +21,7 @@ public class MainPage extends BasePage {
     private Link categoryMen;
 
     public void clickLoginLink() {
-        WaitWrapper.waitForElementVisible(logIn.getElement());
+        WaitHelper.waitForElementVisible(logIn.getElement());
         logIn.click();
         MyLogger.getLogger().info("Clicks on Login link");
     }
@@ -40,7 +40,7 @@ public class MainPage extends BasePage {
 
     public void clickOnCategory(){
         navArrow.click();
-        ElementsWrapper.actionClick(categoryMen.getElement());
+        WebElements.actionClick(categoryMen.getElement());
 
     }
 }

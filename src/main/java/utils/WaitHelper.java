@@ -1,12 +1,13 @@
-package wrapper;
+package utils;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import webdriver.DriverWrapper;
 
 import java.util.concurrent.TimeUnit;
 
-public class WaitWrapper {
+public class WaitHelper {
 
     public static void waitPageLoad(){
         DriverWrapper.getDriver().manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);

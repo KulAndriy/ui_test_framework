@@ -1,16 +1,14 @@
-package elements;
+package webelements.elements;
 
-import interfaces.elements.ILink;
 import org.openqa.selenium.WebElement;
 
-public class Link implements ILink {
+public class Link extends WebElements {
     protected WebElement element;
 
     public Link(WebElement element) {
         this.element = element;
     }
 
-    @Override
     public void click() {
         element.click();
     }

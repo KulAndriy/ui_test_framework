@@ -1,16 +1,14 @@
-package elements;
+package webelements.elements;
 
-import interfaces.elements.IButton;
 import org.openqa.selenium.WebElement;
 
-public class Button implements IButton {
+public class Button extends WebElements {
     protected WebElement element;
 
     public Button(WebElement element) {
         this.element = element;
     }
 
-    @Override
     public void click() {
         element.click();
     }

@@ -1,9 +1,8 @@
 package pages;
 
-import elements.FieldDecorator;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import wrapper.DriverWrapper;
+import webelements.FieldDecorator;
+import webdriver.DriverWrapper;
 
 public class BasePage {
     public BasePage(){

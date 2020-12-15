@@ -1,13 +1,14 @@
 package pages;
 
-import elements.Button;
-import elements.ErrorTxt;
-import elements.Input;
+import utils.ReadFileHandler;
+import webelements.elements.Button;
+import webelements.elements.ErrorTxt;
+import webelements.elements.Input;
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import wrapper.WaitWrapper;
+import utils.WaitHelper;
 
 public class LoginPage extends BasePage {
 
@@ -23,20 +24,20 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//nav[@class='mn_accountNavigation']")
     private WebElement userLoggedIn;
 
-    public void enterNumber(String number) {
+    public void enterNumber(String number) throws Exception {
         this.number.clear();
-        this.number.write(number);
+        this.number.write(ReadFileHandler.loadProperties(number));
         MyLogger.getLogger().info("Email is entered");
     }
 
-    public void enterPassword(String password) {
+    public void enterPassword(String password) throws Exception {
         this.enterPassword.clear();
-        this.enterPassword.write(password);
+        this.enterPassword.write(ReadFileHandler.loadProperties(password));
         MyLogger.getLogger().info("Password is entered");
     }
 
     public void clickLoginButton() {
-        WaitWrapper.waitForElementClickable(loginButton.getElement());
+        WaitHelper.waitForElementClickable(loginButton.getElement());
         loginButton.click();
         MyLogger.getLogger().info("Login button is clicked");
     }

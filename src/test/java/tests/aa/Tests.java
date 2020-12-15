@@ -4,8 +4,9 @@ import listener.Listener;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import tests.BaseTest;
+import utils.ReadFileHandler;
 import webdriver.factory.DriverType;
-import wrapper.DriverWrapper;
+import webdriver.DriverWrapper;
 import pages.*;
 
 import static org.junit.Assert.assertFalse;
@@ -18,13 +19,14 @@ public class Tests extends BaseTest {
 
     MainPage mainPage;
     LoginPage loginPage;
+    ReadFileHandler readFile = new ReadFileHandler();
 
 public String baseUrl() {
         return BASE_URL;
     }
 
     @Test (dataProvider = "browser")
-    public void login(String e) {
+    public void login(String e) throws Exception {
         DriverWrapper.setDriver(DriverType.valueOf(e));
         DriverWrapper.getDriver().get(baseUrl());
 
@@ -32,8 +34,8 @@ public String baseUrl() {
         mainPage = new MainPage();
         mainPage.clickOnCategory();
         mainPage.clickLoginLink();
-        loginPage.enterNumber("03UUF80");
-        loginPage.enterPassword("Pa55word");
+        loginPage.enterNumber("aa.user.number");
+        loginPage.enterPassword("aa.user.password");
         loginPage.clickLoginButton();
         assertTrue(loginPage.userIsLoggedIn());
         assertTrue(mainPage.verifyMainPageIsOpened());
@@ -42,7 +44,7 @@ public String baseUrl() {
     }
 
     @Test(dataProvider = "browser")
-    public void loginIsNegative(String e){
+    public void loginIsNegative(String e) throws Exception {
         DriverWrapper.setDriver(DriverType.valueOf(e));
         DriverWrapper.getDriver().get(baseUrl());
 
@@ -50,8 +52,8 @@ public String baseUrl() {
         loginPage = new LoginPage();
         mainPage.clickOnCategory();
         mainPage.clickLoginLink();
-        loginPage.enterNumber("03UUF80");
-        loginPage.enterPassword("Pa55word1");
+        loginPage.enterNumber("aa.user.number");
+        loginPage.enterPassword("aa.user.password");
         loginPage.clickLoginButton();
         assertFalse(loginPage.userIsLoggedIn());
         assertFalse(mainPage.verifyMainPageIsOpened());

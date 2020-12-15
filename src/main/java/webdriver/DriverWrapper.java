@@ -1,14 +1,14 @@
-package wrapper;
+package webdriver;
 
 import org.openqa.selenium.WebDriver;
 import webdriver.factory.DriverManagerFactory;
 import webdriver.factory.DriverType;
+import utils.WaitHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class DriverWrapper {
 
@@ -18,7 +18,7 @@ public class DriverWrapper {
 
     public static void setDriver(DriverType driverType){
         driver.set(driverManagerFactory.getDriverManager(driverType).getDriverByType());
-        WaitWrapper.implicitlyWait();
+        WaitHelper.implicitlyWait();
         getDriver().manage().window().maximize();
         driversToCleanup.add(getDriver());
     }
