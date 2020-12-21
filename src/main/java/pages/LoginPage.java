@@ -24,13 +24,13 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//nav[@class='mn_accountNavigation']")
     private WebElement userLoggedIn;
 
-    public void enterNumber(String number) throws Exception {
+    public void enterNumber(String number) {
         this.number.clear();
         this.number.write(ReadFileHandler.loadProperties(number));
         MyLogger.getLogger().info("Email is entered");
     }
 
-    public void enterPassword(String password) throws Exception {
+    public void enterPassword(String password) {
         this.enterPassword.clear();
         this.enterPassword.write(ReadFileHandler.loadProperties(password));
         MyLogger.getLogger().info("Password is entered");

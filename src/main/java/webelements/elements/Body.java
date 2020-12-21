@@ -6,6 +6,7 @@ public class Body extends WebElements {
     protected WebElement element;
 
     public Body(WebElement element) {
+        super(element);
         this.element = element;
     }
 

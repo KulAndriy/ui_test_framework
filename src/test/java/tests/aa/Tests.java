@@ -19,7 +19,7 @@ public class Tests extends BaseTest {
 
     MainPage mainPage;
     LoginPage loginPage;
-    ReadFileHandler readFile = new ReadFileHandler();
+    CategoryPage categoryPage;
 
 public String baseUrl() {
         return BASE_URL;
@@ -32,14 +32,16 @@ public String baseUrl() {
 
         loginPage = new LoginPage();
         mainPage = new MainPage();
-        mainPage.clickOnCategory();
+        categoryPage = new CategoryPage();
         mainPage.clickLoginLink();
         loginPage.enterNumber("aa.user.number");
         loginPage.enterPassword("aa.user.password");
         loginPage.clickLoginButton();
+        categoryPage.clickOnCategoryFromMobileNav();
+        categoryPage.chooseSortOptions("name");
         assertTrue(loginPage.userIsLoggedIn());
-        assertTrue(mainPage.verifyMainPageIsOpened());
-        assertTrue(DriverWrapper.getCurrentURL().equals(baseUrl()));
+//        assertTrue(mainPage.verifyMainPageIsOpened());
+//        assertTrue(DriverWrapper.getCurrentURL().equals(baseUrl()));
         assertFalse(loginPage.wrongLogin());
     }
 
@@ -50,10 +52,9 @@ public String baseUrl() {
 
         mainPage = new MainPage();
         loginPage = new LoginPage();
-        mainPage.clickOnCategory();
         mainPage.clickLoginLink();
         loginPage.enterNumber("aa.user.number");
-        loginPage.enterPassword("aa.user.password");
+        loginPage.enterPassword("aa.user.wrong.number");
         loginPage.clickLoginButton();
         assertFalse(loginPage.userIsLoggedIn());
         assertFalse(mainPage.verifyMainPageIsOpened());

@@ -15,10 +15,8 @@ public class MainPage extends BasePage {
     private Body page;
     @FindBy(xpath = "//a[@class='mn_signInLink'][@href='/j____.htm']")
     private Link logIn;
-    @FindBy(xpath = "//div[@class='mn_navigationDropdownTrigger']/span[@class='mn_mainNavTrigger']")
-    private WebElement navArrow;
-    @FindBy(xpath = "//a[@href='/Mens-Clothing/bc_2___.htm']")
-    private Link categoryMen;
+    @FindBy(xpath = "//div[@class=\"mn_dotwLabel\"]")
+    private WebElement dealOfTheWeek;
 
     public void clickLoginLink() {
         WaitHelper.waitForElementVisible(logIn.getElement());
@@ -37,10 +35,15 @@ public class MainPage extends BasePage {
             return false;
         }
     }
-
-    public void clickOnCategory(){
-        navArrow.click();
-        WebElements.actionClick(categoryMen.getElement());
-
+    public boolean verifyDOTWIsPresent(){
+        try {
+            if (dealOfTheWeek.isDisplayed()){
+                MyLogger.getLogger().info("The DOTW section is present on MHP page.");
+            }
+            return dealOfTheWeek.isDisplayed();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

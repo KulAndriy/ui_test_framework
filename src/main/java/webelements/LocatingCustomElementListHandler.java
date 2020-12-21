@@ -1,6 +1,5 @@
 package webelements;
 
-import interfaces.elements.IElement;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.pagefactory.ElementLocator;
 

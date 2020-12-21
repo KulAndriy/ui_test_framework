@@ -1,20 +1,41 @@
 package webelements.elements;
 
-import interfaces.elements.IElement;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.Select;
+import webelements.IElement;
 import org.openqa.selenium.interactions.Actions;
 import webdriver.DriverWrapper;
 import utils.WaitHelper;
 
-public class WebElements implements IElement {
-    public static Actions actions;
+import java.util.List;
 
-    public static void actionClick(WebElement element){
-       actions = new Actions(DriverWrapper.getDriver());
-        if (WaitHelper.waitForElementVisible(element).isDisplayed()) {
-            actions.moveToElement(element).click().perform();
+public class WebElements extends RemoteWebElement implements IElement {
+        private WebElement element;
+
+    public WebElements(WebElement element) {
+        this.element = element;
+    }
+
+    @Override
+    public void click() {
+        element.click();
+    }
+
+    public WebElement getElement(){
+        return element;
+    }
+    public static void actionClick(WebElements element){
+        Actions actions = new Actions(DriverWrapper.getDriver());
+        if (WaitHelper.waitForElementVisible(element.getElement()).isDisplayed()) {
+            actions.moveToElement(element.getElement()).click().perform();
         }
     }
 
-
+    public void selectElementByValue(WebElements element, String value){
+        if (WaitHelper.waitForElementClickable(element.getElement()).isDisplayed()) {
+            Select selectedElement = new Select(element.getElement());
+            selectedElement.selectByValue(value);
+        }
+    }
 }

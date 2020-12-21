@@ -1,6 +1,5 @@
 package webelements;
 
-import interfaces.elements.IElement;
 import org.openqa.selenium.WebElement;
 
 public class WrapperFactory {
