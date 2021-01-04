@@ -27,7 +27,7 @@ public String baseUrl() {
     /**
      * Positive Login test
      */
-    @Test (dataProvider = "partialBrowser")
+    @Test (dataProvider = "browser")
     public void login(String driverType) {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
@@ -46,7 +46,7 @@ public String baseUrl() {
     /**
      * Negative Login test
      */
-    @Test(dataProvider = "partialBrowser")
+    @Test(dataProvider = "browser")
     public void loginIsNegative(String driverType) {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
@@ -66,7 +66,7 @@ public String baseUrl() {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "partialBrowser")
+    @Test(dataProvider = "browser")
     public void openCategoryPageOnDesktop(String driverType){
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
@@ -79,7 +79,7 @@ public String baseUrl() {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "partialBrowser")
+    @Test(dataProvider = "browser")
     public void openCategoryPageOnMobile(String driverType){
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
@@ -92,7 +92,7 @@ public String baseUrl() {
     /**
      * Verify DOTW section on desktop
      */
-    @Test(dataProvider = "partialBrowser")
+    @Test(dataProvider = "browser")
     public void verifyDOTWSection(String driverType){
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
