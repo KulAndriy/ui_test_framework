@@ -1,6 +1,7 @@
 package tests.aa;
 
 import listener.Listener;
+import org.junit.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import tests.BaseTest;
@@ -72,7 +73,7 @@ public String baseUrl() {
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromDesktopNav();
-        assertTrue(categoryPage.verifyCategoryIsOpened());
+        Assert.assertTrue(categoryPage.verifyCategoryIsOpened());
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
     }
 
@@ -85,7 +86,7 @@ public String baseUrl() {
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromMobileNav();
-        assertTrue(categoryPage.verifyCategoryIsOpened());
+        Assert.assertTrue(categoryPage.verifyCategoryIsOpened());
         categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
     }
 
