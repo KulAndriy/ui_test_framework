@@ -14,6 +14,11 @@ public class BaseTest {
         return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
     }
 
+    @DataProvider(name = "partialBrowser")
+    public Object[] partialBrowsers() {
+        return new Object[] {"CHROME"};
+    }
+
     @AfterMethod
     public void clearCookies() {
         DriverWrapper.getDriver().manage().deleteAllCookies();
