@@ -1,14 +1,13 @@
 package pages;
 
 import utils.ReadFileHandler;
-import webelements.elements.Button;
-import webelements.elements.ErrorTxt;
 import webelements.elements.Input;
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitHelper;
+import webelements.elements.WebElements;
 
 public class LoginPage extends BasePage {
 
@@ -18,9 +17,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//input[@type='password'][@id='mn_password']")
     private Input enterPassword;
     @FindBy(xpath = "//input[@class='mn_button mn_submitButton mn_loginButton'][@type='button']")
-    private Button loginButton;
+    private WebElements loginButton;
     @FindBy(xpath = "//ul[@class='mn_errorListWrap']//li[@class='mn_errTxt']")
-    private ErrorTxt errorAlert;
+    private WebElements errorAlert;
     @FindBy(xpath = "//nav[@class='mn_accountNavigation']")
     private WebElement userLoggedIn;
 
@@ -56,10 +55,10 @@ public class LoginPage extends BasePage {
 
     public boolean wrongLogin(){
         try {
-            if (errorAlert.getErrorList().isDisplayed()) {
+            if (errorAlert.getElement().isDisplayed()) {
                 MyLogger.getLogger().info("Errors while login, please verify your credentials!!!");
             }
-            return errorAlert.getErrorList().isDisplayed();
+            return errorAlert.getElement().isDisplayed();
         } catch (NoSuchElementException e) {
             MyLogger.getLogger().info("No errors while login!!!!");
             return false;

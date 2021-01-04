@@ -18,12 +18,12 @@ public class WaitHelper {
     }
 
     public static WebElement waitForElementVisible(WebElement element){
-        new WebDriverWait(DriverWrapper.getDriver(),10).until(ExpectedConditions.visibilityOf(element));
+        new WebDriverWait(DriverWrapper.getDriver(),20).until(ExpectedConditions.visibilityOf(element));
         return element;
     }
 
     public static WebElement waitForElementClickable(WebElement element){
-        new WebDriverWait(DriverWrapper.getDriver(), 10).until(ExpectedConditions.elementToBeClickable(element));
+        new WebDriverWait(DriverWrapper.getDriver(), 20).until(ExpectedConditions.elementToBeClickable(element));
         return element;
     }
 }

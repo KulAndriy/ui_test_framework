@@ -1,18 +1,17 @@
 package pages;
 
-import webelements.elements.Body;
 import webelements.elements.Link;
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import webelements.elements.WebElements;
 import utils.WaitHelper;
+import webelements.elements.WebElements;
 
 public class MainPage extends BasePage {
 
     @FindBy(xpath = "//body[@id='mn_h']")
-    private Body page;
+    private WebElements page;
     @FindBy(xpath = "//a[@class='mn_signInLink'][@href='/j____.htm']")
     private Link logIn;
     @FindBy(xpath = "//div[@class=\"mn_dotwLabel\"]")
@@ -26,10 +25,10 @@ public class MainPage extends BasePage {
 
     public boolean verifyMainPageIsOpened(){
         try {
-            if (page.getBody().isDisplayed()) {
+            if (page.getElement().isDisplayed()) {
                 MyLogger.getLogger().info("The main page is opened!!!");
             }
-            return  page.getBody().isDisplayed();
+            return  page.getElement().isDisplayed();
         } catch (NoSuchElementException e) {
             MyLogger.getLogger().error("The main page is not opened!!!");
             return false;

@@ -4,7 +4,6 @@ import listener.Listener;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import tests.BaseTest;
-import utils.ReadFileHandler;
 import webdriver.factory.DriverType;
 import webdriver.DriverWrapper;
 import pages.*;
@@ -25,29 +24,31 @@ public String baseUrl() {
         return BASE_URL;
     }
 
+    /**
+     * Positive Login test
+     */
     @Test (dataProvider = "browser")
-    public void login(String e) throws Exception {
-        DriverWrapper.setDriver(DriverType.valueOf(e));
+    public void login(String driverType) {
+        DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
-
         loginPage = new LoginPage();
         mainPage = new MainPage();
-        categoryPage = new CategoryPage();
         mainPage.clickLoginLink();
         loginPage.enterNumber("aa.user.number");
         loginPage.enterPassword("aa.user.password");
         loginPage.clickLoginButton();
-        categoryPage.clickOnCategoryFromMobileNav();
-        categoryPage.chooseSortOptions("name");
         assertTrue(loginPage.userIsLoggedIn());
-//        assertTrue(mainPage.verifyMainPageIsOpened());
-//        assertTrue(DriverWrapper.getCurrentURL().equals(baseUrl()));
+        assertTrue(mainPage.verifyMainPageIsOpened());
+        assertTrue(DriverWrapper.getCurrentURL().equals(baseUrl()));
         assertFalse(loginPage.wrongLogin());
     }
 
+    /**
+     * Negative Login test
+     */
     @Test(dataProvider = "browser")
-    public void loginIsNegative(String e) throws Exception {
-        DriverWrapper.setDriver(DriverType.valueOf(e));
+    public void loginIsNegative(String driverType) {
+        DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
 
         mainPage = new MainPage();
@@ -60,5 +61,47 @@ public String baseUrl() {
         assertFalse(mainPage.verifyMainPageIsOpened());
         assertFalse(DriverWrapper.getCurrentURL().equals(baseUrl()));
         assertTrue(loginPage.wrongLogin());
+    }
+
+    /**
+     * Open Category on desktop menu
+     */
+    @Test(dataProvider = "browser")
+    public void openCategoryPageOnDesktop(String driverType){
+        DriverWrapper.setDriver(DriverType.valueOf(driverType));
+        DriverWrapper.getDriver().get(baseUrl());
+        categoryPage = new CategoryPage();
+        categoryPage.clickOnCategoryFromDesktopNav();
+        assertTrue(categoryPage.verifyCategoryIsOpened());
+        categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
+    }
+
+    /**
+     * Open Category on desktop menu
+     */
+    @Test(dataProvider = "browser")
+    public void openCategoryPageOnMobile(String driverType){
+        DriverWrapper.setDriver(DriverType.valueOf(driverType));
+        DriverWrapper.getDriver().get(baseUrl());
+        categoryPage = new CategoryPage();
+        categoryPage.clickOnCategoryFromMobileNav();
+        assertTrue(categoryPage.verifyCategoryIsOpened());
+        categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
+    }
+
+    /**
+     * Verify DOTW section on desktop
+     */
+    @Test(dataProvider = "browser")
+    public void verifyDOTWSection(String driverType){
+        DriverWrapper.setDriver(DriverType.valueOf(driverType));
+        DriverWrapper.getDriver().get(baseUrl());
+        loginPage = new LoginPage();
+        mainPage = new MainPage();
+        mainPage.clickLoginLink();
+        loginPage.enterNumber("aa.user.number");
+        loginPage.enterPassword("aa.user.password");
+        loginPage.clickLoginButton();
+        assertTrue(mainPage.verifyDOTWIsPresent());
     }
 }
