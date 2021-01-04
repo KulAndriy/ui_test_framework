@@ -1,6 +1,5 @@
 package tests;
 
-import listener.Listener;
 import org.testng.annotations.*;
 import webdriver.factory.DriverType;
 import webdriver.DriverWrapper;
@@ -29,8 +28,10 @@ public class BaseTest {
         DriverWrapper.getDriver().quit();
     }
 
-    @AfterTest
+    @AfterClass
     public void turnDown(){
         DriverWrapper.driverCleanup();
     }
+
+
 }

@@ -67,7 +67,7 @@ public String baseUrl() {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "browser")
+    @Test(dataProvider = "partialBrowser")
     public void openCategoryPageOnDesktop(String driverType){
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
@@ -80,7 +80,7 @@ public String baseUrl() {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "browser")
+    @Test(dataProvider = "partialBrowser")
     public void openCategoryPageOnMobile(String driverType){
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
