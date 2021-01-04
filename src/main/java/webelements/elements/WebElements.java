@@ -19,9 +19,9 @@ public class WebElements extends RemoteWebElement implements IElement {
 
     @Override
     public void click() {
-        if (WaitHelper.waitForElementVisible(element).isDisplayed()) {
+//        if (WaitHelper.waitForElementVisible(element).isDisplayed()) {
             element.click();
-        }
+//        }
     }
 
     public WebElement getElement(){
