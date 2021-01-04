@@ -5,6 +5,7 @@ import browser.BrowserSize;
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.FindBy;
+import utils.WaitHelper;
 import webelements.elements.Link;
 import webelements.elements.WebElements;
 
@@ -49,6 +50,7 @@ public class CategoryPage extends BasePage {
 
     public boolean verifyCategoryIsOpened(){
         try {
+            WaitHelper.waitPageLoad();
             if (page.getElement().isDisplayed()) {
                 MyLogger.getLogger().info("The Category page is opened!!!");
             }
