@@ -19,19 +19,26 @@ public class WebElements extends RemoteWebElement implements IElement {
 
     @Override
     public void click() {
-        if (WaitHelper.waitForElementVisible(element).isDisplayed()) {
+//        if (WaitHelper.waitForElementVisible(element).isDisplayed()) {
             element.click();
-        }
+//        }
     }
 
     public WebElement getElement(){
         return element;
     }
 
-    public static void actionClick(WebElements element){
+    public void actionClick(){
         Actions actions = new Actions(DriverWrapper.getDriver());
-        if (WaitHelper.waitForElementVisible(element.getElement()).isDisplayed()) {
-            actions.moveToElement(element.getElement()).click().perform();
+        if (WaitHelper.waitForElementVisible(element).isDisplayed()) {
+            actions.moveToElement(element).click().perform();
+        }
+    }
+
+    public void mouseHover(){
+        Actions action = new Actions(DriverWrapper.getDriver());
+        if (WaitHelper.waitForElementVisible(element).isDisplayed()) {
+            action.moveToElement(element).build().perform();
         }
     }
 

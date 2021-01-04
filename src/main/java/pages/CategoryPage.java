@@ -28,9 +28,9 @@ public class CategoryPage extends BasePage {
     public void clickOnCategoryFromDesktopNav(){
         browser.setScreenSize(BrowserSize.DESKTOP);
         MyLogger.getLogger().info("Clicks on navigation drop-down on desktop");
-        navArrow.click();
+        navArrow.mouseHover();
         MyLogger.getLogger().info("Clicks on Category from desktop navigation");
-        WebElements.actionClick(categoryMen);
+        categoryMen.actionClick();
     }
 
     public void clickOnCategoryFromMobileNav(){
@@ -38,9 +38,9 @@ public class CategoryPage extends BasePage {
         MyLogger.getLogger().info("Clicks on hamburger menu on mobile");
         hamburgerIcon.click();
         MyLogger.getLogger().info("Open Category drop-down");
-        WebElements.actionClick(mobileCategoriesNav);
+        mobileCategoriesNav.actionClick();
         MyLogger.getLogger().info("Clicks on Category from mobile navigation");
-        WebElements.actionClick(categoryMen);
+        categoryMen.actionClick();
     }
 
     public void chooseSortOptions(SortOption value){
