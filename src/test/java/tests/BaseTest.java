@@ -29,7 +29,7 @@ public class BaseTest {
         DriverWrapper.getDriver().quit();
     }
 
-    @AfterTest
+    @AfterClass
     public void turnDown(){
         DriverWrapper.driverCleanup();
     }
