@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class WaitHelper {
 
     public static void waitPageLoad(){
-        DriverWrapper.getDriver().manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        DriverWrapper.getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
     }
 
     public static void implicitlyWait(){
