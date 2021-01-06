@@ -28,7 +28,7 @@ public class CategoryPage extends BasePage {
     public void clickOnCategoryFromDesktopNav(){
         browser.setScreenSize(BrowserSize.DESKTOP);
         MyLogger.getLogger().info("Clicks on navigation drop-down on desktop");
-        navArrow.mouseHover();
+        navArrow.actionClick();
         MyLogger.getLogger().info("Clicks on Category from desktop navigation");
         categoryMen.actionClick();
     }
