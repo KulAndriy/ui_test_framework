@@ -14,7 +14,7 @@ public class CategoryPage extends BasePage {
     private Link categoryMen;
     @FindBy(xpath = "//div[@class='mn_categoryPage']")
     private WebElements page;
-    @FindBy(xpath = "//nav[@class='mn_nav']//span[@class = 'mn_mainNavTrigger']")
+    @FindBy(xpath = "//span[@class = 'mn_mainNavTrigger']")
     private WebElements navArrow;
     @FindBy(xpath = "//button[@class='mn_navTrigger americanairlines-svgIcon americanairlines-icon_hamburger']")
     private WebElements hamburgerIcon;
