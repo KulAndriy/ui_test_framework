@@ -37,9 +37,8 @@ public class WebElements extends RemoteWebElement implements IElement {
 
     public void mouseHover(){
         Actions action = new Actions(DriverWrapper.getDriver());
-//        if (WaitHelper.waitForElementVisible(element).isDisplayed()) {
+        WaitHelper.waitForElementVisible(element);
             action.moveToElement(element).build().perform();
-//        }
     }
 
     public void selectElementByValue(WebElements element, String value){
