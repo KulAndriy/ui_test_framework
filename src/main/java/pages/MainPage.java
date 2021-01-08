@@ -36,6 +36,7 @@ public class MainPage extends BasePage {
     }
     public boolean verifyDOTWIsPresent(){
         try {
+            WaitHelper.waitForElementVisible(dealOfTheWeek);
             if (dealOfTheWeek.isDisplayed()){
                 MyLogger.getLogger().info("The DOTW section is present on MHP page.");
             }
