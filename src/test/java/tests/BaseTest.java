@@ -19,15 +19,14 @@ public class BaseTest {
     public String baseUrl() {
         return BASE_URL;
     }
-    Object[] env;
+    String env = System.getProperty("environment");
 
-    private Object[] getDataProvider(){
-        Object check = System.getProperty("environment");
-        if (check.equals("DEFAULT")){
-            return env = Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
-        }
-        return env= (Object[]) check;
-    }
+//    private String getDataProvider(){
+//        if (env != null){
+//            return env;
+//        }
+//        return "CHROME";
+//    }
 
     @DataProvider(name = "browser")
     public Object[] testBrowsers() {
@@ -40,8 +39,11 @@ public class BaseTest {
     }
 
     @DataProvider(name = "dp")
-    public Object[][] dataInjection(){
-        return new Object[][]{{getDataProvider()}};
+    public Object[] dataInjection(){
+        if (env != null) {
+            return new Object[][]{{env}};
+        }
+        return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
     }
 
     @AfterMethod
