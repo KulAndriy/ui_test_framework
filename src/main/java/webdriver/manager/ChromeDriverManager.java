@@ -18,7 +18,7 @@ public class ChromeDriverManager extends DriverManager {
     public WebDriver createDriver() {
             setDriverProperty();
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("window-size=1936,1056");
             return driver = new ChromeDriver(chromeOptions);
     }
 
