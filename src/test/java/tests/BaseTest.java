@@ -40,7 +40,7 @@ public class BaseTest {
 
     @DataProvider(name = "dp")
     public Object[] dataInjection(){
-        if (env.equals("DEFAULT")) {
+        if (env.equals("DEFAULT") || env == null) {
             return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
 
         }else {
