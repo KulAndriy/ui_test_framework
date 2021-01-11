@@ -15,7 +15,7 @@ public class BaseTest {
 
     @DataProvider(name = "partialBrowser")
     public Object[] partialBrowsers() {
-        return new Object[] {"CHROME"};
+        return new Object[] {"FIREFOX"};
     }
 
     @AfterMethod
