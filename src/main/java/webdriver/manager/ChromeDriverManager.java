@@ -17,8 +17,9 @@ public class ChromeDriverManager extends DriverManager {
     @Override
     public WebDriver createDriver() {
             setDriverProperty();
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("window-size=1936,1056");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("window-size=1936,1056");
             return driver = new ChromeDriver(chromeOptions);
     }
 
