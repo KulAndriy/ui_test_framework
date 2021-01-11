@@ -74,8 +74,7 @@ public String baseUrl() {
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromDesktopNav();
-//        Thread.sleep(5000);
-        WaitHelper.waitPageLoad();
+        Thread.sleep(3000);
         assertTrue(categoryPage.verifyCategoryIsOpened());
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
     }
