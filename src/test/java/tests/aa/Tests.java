@@ -74,7 +74,8 @@ public String baseUrl() {
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromDesktopNav();
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
+        WaitHelper.waitPageLoad();
         assertTrue(categoryPage.verifyCategoryIsOpened());
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
     }
@@ -88,7 +89,8 @@ public String baseUrl() {
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromMobileNav();
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
+        WaitHelper.waitPageLoad();
         assertTrue(categoryPage.verifyCategoryIsOpened());
         categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
     }
