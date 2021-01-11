@@ -19,6 +19,7 @@ public class BaseTest {
     public String baseUrl() {
         return BASE_URL;
     }
+    String env = System.getProperty("environment");
 
     @DataProvider(name = "browser")
     public Object[] testBrowsers() {
@@ -28,6 +29,16 @@ public class BaseTest {
     @DataProvider(name = "partialBrowser")
     public Object[] partialBrowsers() {
         return new Object[] {"FIREFOX"};
+    }
+
+    @DataProvider(name = "dp")
+    public Object[] dataInjection(){
+        if (env.equals("ALL") | env == null) {
+            return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
+
+        }else {
+            return new Object[][]{{env}};
+        }
     }
 
     @AfterMethod
@@ -44,6 +55,4 @@ public class BaseTest {
     public void turnDown(){
         DriverWrapper.driverCleanup();
     }
-
-
 }

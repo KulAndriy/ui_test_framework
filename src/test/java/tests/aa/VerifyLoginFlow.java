@@ -20,7 +20,7 @@ public class VerifyLoginFlow extends BaseTest {
     /**
      * Positive Login test
      */
-    @Test (dataProvider = "browser")
+    @Test (dataProvider = "dp")
     public void login(String driverType) {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
@@ -40,11 +40,10 @@ public class VerifyLoginFlow extends BaseTest {
     /**
      * Negative Login test
      */
-    @Test(dataProvider = "browser")
+    @Test(dataProvider = "dp")
     public void loginIsNegative(String driverType) {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
-
         mainPage = new MainPage();
         loginPage = new LoginPage();
         mainPage.clickLoginLink();
@@ -57,8 +56,4 @@ public class VerifyLoginFlow extends BaseTest {
         assertFalse(DriverWrapper.getCurrentURL().equals(baseUrl()));
         assertTrue(loginPage.wrongLogin());
     }
-
-
-
-
 }

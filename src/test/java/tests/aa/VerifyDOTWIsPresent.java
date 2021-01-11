@@ -13,7 +13,7 @@ public class VerifyDOTWIsPresent extends BaseTest {
     /**
      * Verify DOTW section on desktop
      */
-    @Test(dataProvider = "browser")
+    @Test(dataProvider = "dp")
     public void verifyDOTWOnDesktop(String driverType){
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());

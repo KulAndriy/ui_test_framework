@@ -16,13 +16,12 @@ public class VerifyCategoryPage extends BaseTest {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "browser")
-    public void openCategoryPageOnDesktop(String driverType) throws InterruptedException {
+    @Test(dataProvider = "dp")
+    public void openCategoryPageOnDesktop(String driverType) {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromDesktopNav();
-//        Thread.sleep(3000);
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
         WaitHelper.waitPageLoad();
         assertTrue(categoryPage.verifyCategoryIsOpened());
@@ -32,13 +31,12 @@ public class VerifyCategoryPage extends BaseTest {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "browser")
-    public void openCategoryPageOnMobile(String driverType) throws InterruptedException {
+    @Test(dataProvider = "dp")
+    public void openCategoryPageOnMobile(String driverType) {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromMobileNav();
-//        Thread.sleep(3000);
         categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
         WaitHelper.waitPageLoad();
         assertTrue(categoryPage.verifyCategoryIsOpened());
