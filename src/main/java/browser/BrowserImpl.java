@@ -10,7 +10,7 @@ public class BrowserImpl {
 
     public BrowserImpl() {
         this.screenSize = new HashMap<>();
-        screenSize.put(BrowserSize.DESKTOP, "1420x768");
+        screenSize.put(BrowserSize.DESKTOP, "1936x1176");
         screenSize.put(BrowserSize.SMALL_DESKTOP,"1278x768");
         screenSize.put(BrowserSize.MOBILE,"480x768");
 
