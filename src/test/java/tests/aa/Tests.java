@@ -1,16 +1,17 @@
 package tests.aa;
 
 import listener.Listener;
-import org.junit.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import tests.BaseTest;
+import utils.WaitHelper;
 import webdriver.factory.DriverType;
 import webdriver.DriverWrapper;
 import pages.*;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 
 @Listeners(Listener.class)
 
@@ -38,6 +39,7 @@ public String baseUrl() {
         loginPage.enterNumber("aa.user.number");
         loginPage.enterPassword("aa.user.password");
         loginPage.clickLoginButton();
+        WaitHelper.waitPageLoad();
         assertTrue(loginPage.userIsLoggedIn());
         assertTrue(mainPage.verifyMainPageIsOpened());
         assertTrue(DriverWrapper.getCurrentURL().equals(baseUrl()));
@@ -58,6 +60,7 @@ public String baseUrl() {
         loginPage.enterNumber("aa.user.number");
         loginPage.enterPassword("aa.user.wrong.number");
         loginPage.clickLoginButton();
+        WaitHelper.waitPageLoad();
         assertFalse(loginPage.userIsLoggedIn());
         assertFalse(mainPage.verifyMainPageIsOpened());
         assertFalse(DriverWrapper.getCurrentURL().equals(baseUrl()));
@@ -67,27 +70,33 @@ public String baseUrl() {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "partialBrowser")
-    public void openCategoryPageOnDesktop(String driverType){
+    @Test(dataProvider = "browser")
+    public void openCategoryPageOnDesktop(String driverType) throws InterruptedException {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromDesktopNav();
-        Assert.assertTrue(categoryPage.verifyCategoryIsOpened());
+//        Thread.sleep(3000);
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
+        WaitHelper.waitPageLoad();
+        assertTrue(categoryPage.verifyCategoryIsOpened());
+
     }
 
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "partialBrowser")
-    public void openCategoryPageOnMobile(String driverType){
+    @Test(dataProvider = "browser")
+    public void openCategoryPageOnMobile(String driverType) throws InterruptedException {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromMobileNav();
-        Assert.assertTrue(categoryPage.verifyCategoryIsOpened());
+//        Thread.sleep(3000);
         categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
+        WaitHelper.waitPageLoad();
+        assertTrue(categoryPage.verifyCategoryIsOpened());
+
     }
 
     /**
