@@ -21,6 +21,13 @@ public class BaseTest {
     }
     String env = System.getProperty("environment");
 
+    private String getDataProvider(){
+        if (env == null){
+            return env = String.valueOf(Arrays.stream(DriverType.values()).map(s->s.name()).toArray());
+        }
+        return env;
+    }
+
     @DataProvider(name = "browser")
     public Object[] testBrowsers() {
         return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
@@ -33,7 +40,7 @@ public class BaseTest {
 
     @DataProvider(name = "dp")
     public Object[][] dataInjection(){
-        return new Object[][]{{env}};
+        return new Object[][]{{getDataProvider()}};
     }
 
     @AfterMethod
