@@ -39,6 +39,7 @@ public String baseUrl() {
         loginPage.enterNumber("aa.user.number");
         loginPage.enterPassword("aa.user.password");
         loginPage.clickLoginButton();
+        WaitHelper.waitPageLoad();
         assertTrue(loginPage.userIsLoggedIn());
         assertTrue(mainPage.verifyMainPageIsOpened());
         assertTrue(DriverWrapper.getCurrentURL().equals(baseUrl()));
@@ -59,6 +60,7 @@ public String baseUrl() {
         loginPage.enterNumber("aa.user.number");
         loginPage.enterPassword("aa.user.wrong.number");
         loginPage.clickLoginButton();
+        WaitHelper.waitPageLoad();
         assertFalse(loginPage.userIsLoggedIn());
         assertFalse(mainPage.verifyMainPageIsOpened());
         assertFalse(DriverWrapper.getCurrentURL().equals(baseUrl()));
@@ -74,9 +76,11 @@ public String baseUrl() {
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromDesktopNav();
-        Thread.sleep(5000);
-        assertTrue(categoryPage.verifyCategoryIsOpened());
+//        Thread.sleep(3000);
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
+        WaitHelper.waitPageLoad();
+        assertTrue(categoryPage.verifyCategoryIsOpened());
+
     }
 
     /**
@@ -88,9 +92,11 @@ public String baseUrl() {
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromMobileNav();
-        Thread.sleep(3000);
-        assertTrue(categoryPage.verifyCategoryIsOpened());
+//        Thread.sleep(3000);
         categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
+        WaitHelper.waitPageLoad();
+        assertTrue(categoryPage.verifyCategoryIsOpened());
+
     }
 
     /**
