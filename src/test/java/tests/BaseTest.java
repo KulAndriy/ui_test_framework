@@ -19,14 +19,14 @@ public class BaseTest {
     public String baseUrl() {
         return BASE_URL;
     }
-    String env;
+    Object[] env;
 
-    private String getDataProvider(){
-        String check = System.getProperty("environment");
+    private Object[] getDataProvider(){
+        Object check = System.getProperty("environment");
         if (check.equals("DEFAULT")){
-            return env = String.valueOf(Arrays.stream(DriverType.values()).map(s->s.name()).toArray());
+            return env = Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
         }
-        return env = check;
+        return env= (Object[]) check;
     }
 
     @DataProvider(name = "browser")
