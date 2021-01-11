@@ -10,11 +10,11 @@ import java.util.concurrent.TimeUnit;
 public class WaitHelper {
 
     public static void waitPageLoad(){
-        DriverWrapper.getDriver().manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        DriverWrapper.getDriver().manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
     }
 
     public static void implicitlyWait(){
-        DriverWrapper.getDriver().manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        DriverWrapper.getDriver().manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
     }
 
     public static WebElement waitForElementVisible(WebElement element){
