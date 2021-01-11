@@ -19,6 +19,7 @@ public class BaseTest {
     public String baseUrl() {
         return BASE_URL;
     }
+    String env = System.getProperty("environment");
 
     @DataProvider(name = "browser")
     public Object[] testBrowsers() {
@@ -28,6 +29,11 @@ public class BaseTest {
     @DataProvider(name = "partialBrowser")
     public Object[] partialBrowsers() {
         return new Object[] {"FIREFOX"};
+    }
+
+    @DataProvider(name = "dp")
+    public Object[][] dataInjection(){
+        return new Object[][]{{env}};
     }
 
     @AfterMethod

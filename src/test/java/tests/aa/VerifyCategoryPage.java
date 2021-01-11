@@ -16,7 +16,7 @@ public class VerifyCategoryPage extends BaseTest {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "browser")
+    @Test(dataProvider = "dp")
     public void openCategoryPageOnDesktop(String driverType) throws InterruptedException {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
@@ -32,7 +32,7 @@ public class VerifyCategoryPage extends BaseTest {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "browser")
+    @Test(dataProvider = "dp")
     public void openCategoryPageOnMobile(String driverType) throws InterruptedException {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
