@@ -75,7 +75,6 @@ public String baseUrl() {
         categoryPage.clickOnCategoryFromDesktopNav();
         Assert.assertTrue(categoryPage.verifyCategoryIsOpened());
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
-        saveScreenshotPNG(DriverWrapper.getDriver());
     }
 
     /**

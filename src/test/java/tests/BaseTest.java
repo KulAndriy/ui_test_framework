@@ -1,10 +1,5 @@
 package tests;
 
-import io.qameta.allure.Attachment;
-import listener.Listener;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import webdriver.factory.DriverType;
 import webdriver.DriverWrapper;
@@ -38,8 +33,5 @@ public class BaseTest {
         DriverWrapper.driverCleanup();
     }
 
-    @Attachment(value = "Page screenshot", type = "image/png")
-    public byte[] saveScreenshotPNG (WebDriver driver) {
-        return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-    }
+
 }
