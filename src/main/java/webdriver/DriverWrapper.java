@@ -18,7 +18,7 @@ public class DriverWrapper {
 
     public static void setDriver(DriverType driverType){
         driver.set(driverManagerFactory.getDriverManager(driverType).getDriverByType());
-//        WaitHelper.implicitlyWait();
+        WaitHelper.implicitlyWait();
 //        getDriver().manage().window().maximize();
         driversToCleanup.add(getDriver());
     }

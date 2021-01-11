@@ -1,12 +1,24 @@
 package tests;
 
 import org.testng.annotations.*;
+import pages.CategoryPage;
+import pages.LoginPage;
+import pages.MainPage;
 import webdriver.factory.DriverType;
 import webdriver.DriverWrapper;
 
 import java.util.*;
 
 public class BaseTest {
+
+    protected MainPage mainPage;
+    protected LoginPage loginPage;
+    protected CategoryPage categoryPage;
+    protected final String BASE_URL = "https://www.aadvantageeshopping.com/index.php?p=h";
+
+    public String baseUrl() {
+        return BASE_URL;
+    }
 
     @DataProvider(name = "browser")
     public Object[] testBrowsers() {

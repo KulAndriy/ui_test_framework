@@ -14,7 +14,7 @@ public class WaitHelper {
     }
 
     public static void implicitlyWait(){
-        DriverWrapper.getDriver().manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+        DriverWrapper.getDriver().manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
     }
 
     public static WebElement waitForElementVisible(WebElement element){
