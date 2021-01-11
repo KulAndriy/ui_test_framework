@@ -68,7 +68,7 @@ public String baseUrl() {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "partialBrowser")
+    @Test(dataProvider = "browser")
     public void openCategoryPageOnDesktop(String driverType) throws InterruptedException {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
@@ -82,13 +82,13 @@ public String baseUrl() {
     /**
      * Open Category on desktop menu
      */
-    @Test(dataProvider = "partialBrowser")
+    @Test(dataProvider = "browser")
     public void openCategoryPageOnMobile(String driverType) throws InterruptedException {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromMobileNav();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         assertTrue(categoryPage.verifyCategoryIsOpened());
         categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
     }
