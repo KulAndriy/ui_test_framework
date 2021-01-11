@@ -22,7 +22,7 @@ public class BaseTest {
     String env = System.getProperty("environment");
 
     private String getDataProvider(){
-        if (env == null){
+        if (env.equals("DEFAULT") || env == null){
             return env = String.valueOf(Arrays.stream(DriverType.values()).map(s->s.name()).toArray());
         }
         return env;
