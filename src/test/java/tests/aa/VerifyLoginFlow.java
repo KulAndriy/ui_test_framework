@@ -44,7 +44,6 @@ public class VerifyLoginFlow extends BaseTest {
     public void loginIsNegative(String driverType) {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getDriver().get(baseUrl());
-
         mainPage = new MainPage();
         loginPage = new LoginPage();
         mainPage.clickLoginLink();
@@ -57,8 +56,4 @@ public class VerifyLoginFlow extends BaseTest {
         assertFalse(DriverWrapper.getCurrentURL().equals(baseUrl()));
         assertTrue(loginPage.wrongLogin());
     }
-
-
-
-
 }

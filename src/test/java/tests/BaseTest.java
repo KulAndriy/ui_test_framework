@@ -21,13 +21,6 @@ public class BaseTest {
     }
     String env = System.getProperty("environment");
 
-//    private String getDataProvider(){
-//        if (env != null){
-//            return env;
-//        }
-//        return "CHROME";
-//    }
-
     @DataProvider(name = "browser")
     public Object[] testBrowsers() {
         return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
@@ -62,6 +55,4 @@ public class BaseTest {
     public void turnDown(){
         DriverWrapper.driverCleanup();
     }
-
-
 }
