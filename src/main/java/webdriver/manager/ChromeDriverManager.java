@@ -2,6 +2,7 @@ package webdriver.manager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeDriverManager extends DriverManager {
     private static ChromeDriverManager chromeDriverManagerInstance;
@@ -16,7 +17,10 @@ public class ChromeDriverManager extends DriverManager {
     @Override
     public WebDriver createDriver() {
             setDriverProperty();
-            return driver = new ChromeDriver();
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("window-size=1936,1056");
+            return driver = new ChromeDriver(chromeOptions);
     }
 
     public static ChromeDriverManager getChromeDriverManagerInstance(){
