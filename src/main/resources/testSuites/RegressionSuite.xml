@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Regression Suite" >
+<suite data-provider-thread-count="3" parallel="methods" name="Regression Suite" >
     <listeners>
         <listener class-name="listener.Listener"/>
     </listeners>

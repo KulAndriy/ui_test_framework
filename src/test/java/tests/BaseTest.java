@@ -26,12 +26,7 @@ public class BaseTest {
         return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
     }
 
-    @DataProvider(name = "partialBrowser")
-    public Object[] partialBrowsers() {
-        return new Object[] {"FIREFOX"};
-    }
-
-    @DataProvider(name = "dp")
+    @DataProvider(name = "dp", parallel = true)
     public Object[] dataInjection(){
         if (env.equals("ALL") | env == null) {
             return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
