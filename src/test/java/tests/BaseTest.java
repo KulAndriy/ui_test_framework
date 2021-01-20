@@ -26,7 +26,7 @@ public class BaseTest {
         return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
     }
 
-    @DataProvider(name = "dp", parallel = true)
+    @DataProvider(name = "dp")
     public Object[] dataInjection(){
         if (env.equals("ALL") | env == null) {
             return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();

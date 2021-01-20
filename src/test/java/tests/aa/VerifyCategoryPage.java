@@ -20,7 +20,7 @@ public class VerifyCategoryPage extends BaseTest {
     /**
      * Open Category on desktop menu
      */
-    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
+//    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
     @Feature(value = "Verify Category page on different devices")
     @Story(value = "Open Category page on desktop")
     @Test(dataProvider = "dp")
@@ -38,7 +38,7 @@ public class VerifyCategoryPage extends BaseTest {
     /**
      * Open Category on desktop menu
      */
-    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
+//    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
     @Feature(value = "Verify Category page on different devices")
     @Story(value = "Open Category page on mobile device")
     @Test(dataProvider = "dp")

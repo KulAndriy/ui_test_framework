@@ -17,7 +17,7 @@ public class VerifyDOTWIsPresent extends BaseTest {
     /**
      * Verify DOTW section on desktop
      */
-    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
+//    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
     @Feature(value = "Verify DOTW section on different devices")
     @Story(value = "Verify DOTW section on desktop")
     @Test(dataProvider = "dp")

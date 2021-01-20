@@ -24,7 +24,7 @@ public class VerifyLoginFlow extends BaseTest {
     /**
      * Positive Login test
      */
-    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
+//    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
     @Feature(value = "Verify login flow")
     @Story(value = "Verify Positive login flow")
     @Test (dataProvider = "dp")
@@ -47,7 +47,7 @@ public class VerifyLoginFlow extends BaseTest {
     /**
      * Negative Login test
      */
-    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
+//    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
     @Feature(value = "Verify login flow")
     @Story(value = "Verify Negative login flow")
     @Test(dataProvider = "dp")
