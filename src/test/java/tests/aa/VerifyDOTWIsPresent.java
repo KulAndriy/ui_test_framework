@@ -1,5 +1,9 @@
 package tests.aa;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Epics;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.MainPage;
@@ -13,6 +17,9 @@ public class VerifyDOTWIsPresent extends BaseTest {
     /**
      * Verify DOTW section on desktop
      */
+    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
+    @Feature(value = "Verify DOTW section on different devices")
+    @Story(value = "Verify DOTW section on desktop")
     @Test(dataProvider = "dp")
     public void verifyDOTWOnDesktop(String driverType){
         DriverWrapper.setDriver(DriverType.valueOf(driverType));

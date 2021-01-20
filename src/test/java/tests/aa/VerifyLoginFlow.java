@@ -1,5 +1,9 @@
 package tests.aa;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Epics;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import listener.Listener;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -20,6 +24,9 @@ public class VerifyLoginFlow extends BaseTest {
     /**
      * Positive Login test
      */
+    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
+    @Feature(value = "Verify login flow")
+    @Story(value = "Verify Positive login flow")
     @Test (dataProvider = "dp")
     public void login(String driverType) {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
@@ -40,6 +47,9 @@ public class VerifyLoginFlow extends BaseTest {
     /**
      * Negative Login test
      */
+    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
+    @Feature(value = "Verify login flow")
+    @Story(value = "Verify Negative login flow")
     @Test(dataProvider = "dp")
     public void loginIsNegative(String driverType) {
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
