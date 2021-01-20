@@ -43,7 +43,7 @@ public class BaseTest implements ITest {
     }
 
     @BeforeMethod
-    public void setTestName(Annotation a, Method method, Object[] testData){
+    public void setTestName(Method method, Object[] testData){
         testName.set(method.getName() + "_" + testData[0]);
     }
 
