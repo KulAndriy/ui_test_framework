@@ -22,9 +22,9 @@ public class VerifyCategoryPage extends BaseTest {
     @Story(value = "Open Category page on desktop")
     @Test(dataProvider = "dp")
     public void openCategoryPageOnDesktop(String driverType) {
-        categoryPage = new CategoryPage();
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getURL(baseUrl());
+        categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromDesktopNav();
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
         WaitHelper.waitPageLoad();
@@ -38,9 +38,9 @@ public class VerifyCategoryPage extends BaseTest {
     @Story(value = "Open Category page on mobile device")
     @Test(dataProvider = "dp")
     public void openCategoryPageOnMobile(String driverType) {
-        categoryPage = new CategoryPage();
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
         DriverWrapper.getURL(baseUrl());
+        categoryPage = new CategoryPage();
         categoryPage.clickOnCategoryFromMobileNav();
         categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
         WaitHelper.waitPageLoad();
