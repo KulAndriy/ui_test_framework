@@ -25,7 +25,7 @@ public class VerifyLoginFlow extends BaseTest {
      * Positive Login test
      */
 //    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
-    @Feature(value = "Verify login flow")
+    @Feature(value = "Verify login flow {driverType}")
     @Story(value = "Verify Positive login flow")
     @Test (dataProvider = "dp")
     public void login(String driverType) {

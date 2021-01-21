@@ -1,7 +1,5 @@
 package tests.aa;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Epics;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import listener.Listener;
@@ -31,7 +29,7 @@ public class VerifyCategoryPage extends BaseTest {
         categoryPage.clickOnCategoryFromDesktopNav();
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
         WaitHelper.waitPageLoad();
-        assertTrue(categoryPage.verifyCategoryIsOpened());
+        categoryPage.verifyCategoryPageIsOpened();
 
     }
 
@@ -49,7 +47,7 @@ public class VerifyCategoryPage extends BaseTest {
         categoryPage.clickOnCategoryFromMobileNav();
         categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
         WaitHelper.waitPageLoad();
-        assertTrue(categoryPage.verifyCategoryIsOpened());
+        categoryPage.verifyCategoryPageIsOpened();
 
     }
 }

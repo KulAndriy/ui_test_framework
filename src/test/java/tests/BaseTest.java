@@ -9,7 +9,6 @@ import pages.MainPage;
 import webdriver.factory.DriverType;
 import webdriver.DriverWrapper;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.*;
 

@@ -6,7 +6,7 @@ import java.util.Properties;
 public class ReadFileHandler {
 
     public static String loadProperties(final String propertyName) {
-        File file = new File("src/main/resources/test-data.properties");
+        File file = new File("src/test/resources/test-data.properties");
         FileInputStream fileInput = null;
         try {
             fileInput = new FileInputStream(file);
