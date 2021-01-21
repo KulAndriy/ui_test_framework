@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import webelements.elements.Link;
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
@@ -17,23 +18,27 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class=\"mn_dotwLabel\"]")
     private WebElement dealOfTheWeek;
 
+    @Step("Clicks on Login link.")
     public void clickLoginLink() {
         WaitHelper.waitForElementVisible(logIn.getElement());
         logIn.click();
         MyLogger.getLogger().info("Clicks on Login link");
     }
 
+    @Step("Verify the main page is opened.")
     public boolean verifyMainPageIsOpened(){
         try {
             if (page.getElement().isDisplayed()) {
                 MyLogger.getLogger().info("The main page is opened!!!");
             }
-            return  page.getElement().isDisplayed();
+            return page.getElement().isDisplayed();
         } catch (NoSuchElementException e) {
             MyLogger.getLogger().error("The main page is not opened!!!");
-            return false;
         }
+        return false;
     }
+
+    @Step("Verify the DOTW section is present on MHP page.")
     public boolean verifyDOTWIsPresent(){
         try {
             WaitHelper.waitForElementVisible(dealOfTheWeek);
@@ -43,7 +48,7 @@ public class MainPage extends BasePage {
             return dealOfTheWeek.isDisplayed();
         } catch (NoSuchElementException e) {
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
 }

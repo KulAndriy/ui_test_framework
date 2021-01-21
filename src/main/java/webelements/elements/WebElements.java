@@ -8,8 +8,6 @@ import org.openqa.selenium.interactions.Actions;
 import webdriver.DriverWrapper;
 import utils.WaitHelper;
 
-import java.util.List;
-
 public class WebElements extends RemoteWebElement implements IElement {
         private WebElement element;
 
@@ -19,7 +17,6 @@ public class WebElements extends RemoteWebElement implements IElement {
 
     @Override
     public void click() {
-//        if (WaitHelper.waitForElementVisible(element).isDisplayed()) {
             element.click();
 //        }
     }

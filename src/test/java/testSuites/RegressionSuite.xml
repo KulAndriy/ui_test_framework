@@ -4,7 +4,7 @@
     <listeners>
         <listener class-name="listener.Listener"/>
     </listeners>
-    <parameter name="environment" value="CHROME"/>
+<!--    <parameter name="environment" value="CHROME"/>-->
     <test name="Login Flow" >
         <classes>
             <class name="tests.aa.VerifyLoginFlow" />

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import utils.ReadFileHandler;
 import webelements.elements.Input;
 import logger.MyLogger;
@@ -23,24 +24,28 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//nav[@class='mn_accountNavigation']")
     private WebElement userLoggedIn;
 
+    @Step("Enter \"{number}\" username account.")
     public void enterNumber(String number) {
         this.number.clear();
         this.number.write(ReadFileHandler.loadProperties(number));
         MyLogger.getLogger().info("Email is entered");
     }
 
+    @Step("Enter \"{password}\" username password.")
     public void enterPassword(String password) {
         this.enterPassword.clear();
         this.enterPassword.write(ReadFileHandler.loadProperties(password));
         MyLogger.getLogger().info("Password is entered");
     }
 
+    @Step("Click on Login button.")
     public void clickLoginButton() {
         WaitHelper.waitForElementClickable(loginButton.getElement());
         loginButton.click();
         MyLogger.getLogger().info("Login button is clicked");
     }
 
+    @Step("Verify if user is logged in.")
     public boolean userIsLoggedIn(){
         try {
             if (userLoggedIn.isDisplayed()) {
@@ -49,10 +54,11 @@ public class LoginPage extends BasePage {
             return userLoggedIn.isDisplayed();
         } catch (NoSuchElementException e) {
             MyLogger.getLogger().info("Login is not success!!!");
-            return false;
         }
+        return false;
     }
 
+    @Step("Verify if user is not logged in on the mall.")
     public boolean wrongLogin(){
         try {
             if (errorAlert.getElement().isDisplayed()) {

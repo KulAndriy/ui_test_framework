@@ -6,7 +6,6 @@ import io.qameta.allure.Step;
 import logger.MyLogger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 import utils.WaitHelper;
 import webelements.elements.Link;
 import webelements.elements.WebElements;
@@ -47,29 +46,25 @@ public class CategoryPage extends BasePage {
         categoryMen.actionClick();
     }
 
-    @Step("Click on {value} sort drop-down option.")
+    @Step("Click on '{value}' sort drop-down option.")
     public void chooseSortOptions(SortOption value){
         MyLogger.getLogger().info("Sort by: " + value);
         categoryMen.selectElementByValue(selectDropDown, String.valueOf(value));
     }
 
     @Step("Verify if Category page is opened.")
-    public void verifyCategoryPageIsOpened(){
+    public boolean verifyCategoryPageIsOpened(){
         try {
             WaitHelper.waitPageLoad();
             if (page.getElement().isDisplayed()) {
                 MyLogger.getLogger().info("The Category page is opened!!!");
-                Assert.assertTrue(page.getElement().isDisplayed());
             }
+            return page.getElement().isDisplayed();
         } catch (NoSuchElementException e) {
             MyLogger.getLogger().error("The Category page is not opened!!!");
-//            return false;
         }
+        return false;
     }
-
-//    public void verifyCategoryPageIsOpened(){
-//        Assert.assertTrue(verifyCategoryPageLocator());
-//    }
 
     public enum SortOption{
         featured,

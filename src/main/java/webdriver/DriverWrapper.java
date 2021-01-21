@@ -1,5 +1,6 @@
 package webdriver;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import webdriver.factory.DriverManagerFactory;
 import webdriver.factory.DriverType;
@@ -16,15 +17,20 @@ public class DriverWrapper {
     public static List<WebDriver> driversToCleanup = Collections.synchronizedList(new ArrayList());
     private static DriverManagerFactory driverManagerFactory = new DriverManagerFactory();
 
+    @Step("Start '{driverType}' driver")
     public static void setDriver(DriverType driverType){
         driver.set(driverManagerFactory.getDriverManager(driverType).getDriverByType());
         WaitHelper.implicitlyWait();
-//        getDriver().manage().window().maximize();
         driversToCleanup.add(getDriver());
     }
 
     public static WebDriver getDriver(){
         return driver.get();
+    }
+
+    @Step("Get '{url}' URL")
+    public static void getURL(String url){
+        getDriver().get(url);
     }
 
     public static String getCurrentURL() {

@@ -14,7 +14,6 @@ public class Listener implements ITestListener, IInvokedMethodListener {
     @Override
     public void onTestStart(ITestResult result) {
         MyLogger.getLogger().info("\n Test: [{}] is started!!!", result.getName());
-
     }
 
     @Override

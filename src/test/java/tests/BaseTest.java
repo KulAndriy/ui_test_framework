@@ -1,6 +1,5 @@
 package tests;
 
-import io.qameta.allure.Epic;
 import org.testng.ITest;
 import org.testng.annotations.*;
 import pages.CategoryPage;

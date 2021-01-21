@@ -1,7 +1,5 @@
 package tests.aa;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Epics;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import listener.Listener;
@@ -25,7 +23,7 @@ public class VerifyLoginFlow extends BaseTest {
      * Positive Login test
      */
 //    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
-    @Feature(value = "Verify login flow {driverType}")
+    @Feature(value = "Verify login flow")
     @Story(value = "Verify Positive login flow")
     @Test (dataProvider = "dp")
     public void login(String driverType) {

@@ -1,7 +1,5 @@
 package tests.aa;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Epics;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
@@ -23,7 +21,7 @@ public class VerifyDOTWIsPresent extends BaseTest {
     @Test(dataProvider = "dp")
     public void verifyDOTWOnDesktop(String driverType){
         DriverWrapper.setDriver(DriverType.valueOf(driverType));
-        DriverWrapper.getDriver().get(baseUrl());
+        DriverWrapper.getURL(baseUrl());
         loginPage = new LoginPage();
         mainPage = new MainPage();
         mainPage.clickLoginLink();

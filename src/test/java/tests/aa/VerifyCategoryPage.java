@@ -18,36 +18,32 @@ public class VerifyCategoryPage extends BaseTest {
     /**
      * Open Category on desktop menu
      */
-//    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
     @Feature(value = "Verify Category page on different devices")
     @Story(value = "Open Category page on desktop")
     @Test(dataProvider = "dp")
     public void openCategoryPageOnDesktop(String driverType) {
-        DriverWrapper.setDriver(DriverType.valueOf(driverType));
-        DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
+        DriverWrapper.setDriver(DriverType.valueOf(driverType));
+        DriverWrapper.getURL(baseUrl());
         categoryPage.clickOnCategoryFromDesktopNav();
         categoryPage.chooseSortOptions(CategoryPage.SortOption.name);
         WaitHelper.waitPageLoad();
-        categoryPage.verifyCategoryPageIsOpened();
-
+        assertTrue(categoryPage.verifyCategoryPageIsOpened());
     }
 
     /**
      * Open Category on desktop menu
      */
-//    @Epics(value = {@Epic(value = "CHROME"), @Epic(value = "FIREFOX"), @Epic(value = "EDGE")})
     @Feature(value = "Verify Category page on different devices")
     @Story(value = "Open Category page on mobile device")
     @Test(dataProvider = "dp")
     public void openCategoryPageOnMobile(String driverType) {
-        DriverWrapper.setDriver(DriverType.valueOf(driverType));
-        DriverWrapper.getDriver().get(baseUrl());
         categoryPage = new CategoryPage();
+        DriverWrapper.setDriver(DriverType.valueOf(driverType));
+        DriverWrapper.getURL(baseUrl());
         categoryPage.clickOnCategoryFromMobileNav();
         categoryPage.chooseSortOptions(CategoryPage.SortOption.earn_rate);
         WaitHelper.waitPageLoad();
-        categoryPage.verifyCategoryPageIsOpened();
-
+        assertTrue(categoryPage.verifyCategoryPageIsOpened());
     }
 }
