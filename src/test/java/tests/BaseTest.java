@@ -2,9 +2,7 @@ package tests;
 
 import org.testng.ITest;
 import org.testng.annotations.*;
-import pages.CategoryPage;
-import pages.LoginPage;
-import pages.MainPage;
+import utils.ReadFileHandler;
 import webdriver.factory.DriverType;
 import webdriver.DriverWrapper;
 
@@ -13,17 +11,14 @@ import java.util.*;
 
 public class BaseTest implements ITest {
 
-    protected MainPage mainPage;
-    protected LoginPage loginPage;
-    protected CategoryPage categoryPage;
-    protected final String BASE_URL = "https://www.aadvantageeshopping.com/index.php?p=h";
-
+    protected String testDataPropertyPath = "src/test/resources/test-data.properties";
     private ThreadLocal<String> testName = new ThreadLocal<>();
 
-    public String baseUrl() {
-        return BASE_URL;
+    private final String env = System.getProperty("environment");
+
+    public String baseUrl(String baseURL, String pathName) {
+        return ReadFileHandler.loadProperties(baseURL, pathName);
     }
-    String env = System.getProperty("environment");
 
     @DataProvider(name = "browser")
     public Object[] testBrowsers() {
@@ -34,7 +29,6 @@ public class BaseTest implements ITest {
     public Object[] dataInjection(){
         if (env.equals("ALL") | env == null) {
             return Arrays.stream(DriverType.values()).map(s->s.name()).toArray();
-
         }else {
             return new Object[][]{{env}};
         }
@@ -44,7 +38,6 @@ public class BaseTest implements ITest {
     public void setTestName(Method method, Object[] testData){
         testName.set(method.getName() + "_" + testData[0]);
     }
-
 
     @AfterMethod
     public void clearCookies() {

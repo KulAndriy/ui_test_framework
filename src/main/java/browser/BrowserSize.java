@@ -2,6 +2,6 @@ package browser;
 
 public enum BrowserSize {
     DESKTOP,
-    SMALL_DESKTOP,
+    LAPTOP,
     MOBILE
 }

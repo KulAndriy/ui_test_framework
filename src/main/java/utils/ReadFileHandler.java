@@ -5,16 +5,12 @@ import java.util.Properties;
 
 public class ReadFileHandler {
 
-    public static String loadProperties(final String propertyName) {
-        File file = new File("src/test/resources/test-data.properties");
+    public static String loadProperties(final String propertyName, String pathName) {
+        final Properties properties = new Properties();
+        File file = new File(pathName);
         FileInputStream fileInput = null;
         try {
             fileInput = new FileInputStream(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        final Properties properties = new Properties();
-        try {
             properties.load(fileInput);
         } catch (IOException e) {
             e.printStackTrace();

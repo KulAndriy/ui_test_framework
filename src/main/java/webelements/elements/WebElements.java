@@ -1,5 +1,6 @@
 package webelements.elements;
 
+import logger.MyLogger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -9,7 +10,8 @@ import webdriver.DriverWrapper;
 import utils.WaitHelper;
 
 public class WebElements extends RemoteWebElement implements IElement {
-        private WebElement element;
+
+    private WebElement element;
 
     public WebElements(WebElement element) {
         this.element = element;
@@ -18,7 +20,6 @@ public class WebElements extends RemoteWebElement implements IElement {
     @Override
     public void click() {
             element.click();
-//        }
     }
 
     public WebElement getElement(){
@@ -44,4 +45,14 @@ public class WebElements extends RemoteWebElement implements IElement {
             selectedElement.selectByValue(value);
         }
     }
+
+    public boolean isPresent() {
+        try {
+            return element.isDisplayed();
+        } catch (NoSuchElementException e) {
+            e.getStackTrace();
+        }
+        return false;
+    }
+
 }

@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-<!--        <suiteXmlFile>TestNG.xml</suiteXmlFile>-->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <aspectj.version>1.8.10</aspectj.version>
@@ -18,34 +17,31 @@
     </properties>
 
 <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
         <version>3.141.59</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
         <version>7.3.0</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
     <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
         <version>1.2.3</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+
     <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>1.7.30</version>
 
     </dependency>
-    <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+
     <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
@@ -53,17 +49,13 @@
         <scope>test</scope>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
     <dependency>
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-testng</artifactId>
         <version>2.13.8</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
-
-
-
 </dependencies>
+
     <build>
         <plugins>
             <plugin>
