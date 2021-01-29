@@ -15,8 +15,8 @@ public class EdgeDriverManager extends DriverManager {
 
     @Override
     public WebDriver createDriver() {
-            setDriverProperty();
-            return driver = new EdgeDriver();
+        setDriverProperty();
+        return driver = new EdgeDriver();
     }
 
     public static EdgeDriverManager getEdgeDriverManagerInstance(){

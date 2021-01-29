@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Regression Suite" >
+    <listeners>
+        <listener class-name="listener.Listener"/>
+    </listeners>
+<!--    <parameter name="environment" value="CHROME"/>-->
+    <test name="Login Flow" >
+        <classes>
+            <class name="tests.aa.VerifyLoginFlow" />
+        </classes>
+    </test>
+
+    <test name="Verify Category Page" >
+        <classes>
+            <class name="tests.aa.VerifyCategoryPage" />
+        </classes>
+    </test>
+
+    <test name="Verify DOTW section" >
+        <classes>
+            <class name="tests.aa.VerifyDOTWIsPresent" />
+        </classes>
+    </test>
+</suite>
