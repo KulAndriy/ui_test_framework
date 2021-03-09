@@ -1,6 +1,5 @@
 package webelements.elements;
 
-import logger.MyLogger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.Select;

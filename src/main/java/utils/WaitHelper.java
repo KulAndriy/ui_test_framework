@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import webdriver.DriverWrapper;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
